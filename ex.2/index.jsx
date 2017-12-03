@@ -3,17 +3,16 @@ import ReactDOM from 'react-dom'; //eslint-disable-line
 import Field from './field';
 import { combineReducers, createStore } from 'redux'; //eslint-disable-line
 import { Provider } from 'react-redux';//eslint-disable-line
-import fieldReducer from './fieldReducer';
 
 const reducers = combineReducers({
-  field: fieldReducer,
+  field: () => ({ value: 'Opa' }),
 });
 
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
     <Field
       label="Counter"
-      initialValue="teste"
+      initialValue={0}
     />
   </Provider>,
   document.getElementById('app'),
